@@ -10,7 +10,7 @@ Laboratorio de Sistemas de Información Avanzados (LSIA) <br>
 Facultad de Ingeniería, Universidad de Buenos Aires (UBA) <br>
 Ciuad Autónoma de Buenos Aires, Argentina
 
-**Giuseppe Stragapede, Ruben Vera-Rodriguez, Ruben Tolosana**
+**Giuseppe Stragapede, Ruben Vera-Rodriguez, Ruben Tolosana** <br>
 {giuseppe.stragapede,ruben.vera,ruben.tolosana}@uam.es
 
 Biometrics and Data Pattern Analytics (BiDA) Lab <br>
