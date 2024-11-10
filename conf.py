@@ -1,0 +1,22 @@
+# Number of samples per set
+N = 15;
+
+# Number of sets per batch
+K = 10;
+
+CURRICULUM_DELAY = 2;
+CURRICULUM_MAX_NEIGHBOURS = 4;
+
+MODEL_DROPOUT = 0.5;
+MODEL_WIDTH   = 256;
+MODEL_FILTERS = 256;
+ 
+# Set2Set loss hyperparameter
+BETA = 0.05;
+
+TRAINING_STEPS   = 10;
+VALIDATION_STEPS = 10;
+EPOCHS = 600;
+
+EARLY_STOP_THRESHOLD = 1.0;
+EARLY_STOP_PATIENCE  = 40;

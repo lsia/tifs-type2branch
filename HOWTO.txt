@@ -1,0 +1,21 @@
+1) To generate a training dataset, first decompress the KVC training set to the folder raw, and then run
+
+    python generate_dataset.py {scenario} {users}
+
+where {scenario} is desktop or mobile, and {users} is the number of training users in the dataset. The validation and evaluation users are chosen at random from the KVC training set, and their number is fixed at 1000. The preprocessed dataset in numpy and csv formats will be saved to the folder "datasets", under the subfolder "KVCsssNNN", where sss is the name of the scenario (desktop or mobile) and NNN is the number of training users.
+
+2) To merge the dataset with extended features calculated from outside, use the command
+
+    python merge_synth_features.py {dataset}
+
+3) To train the model with a preprocessed dataset, use the command
+
+    python train.py {dataset}
+
+The hyperparameters of the model and the training process are set in the file conf.py; for example, K, the number of sets per batch, the model width MODEL_WIDTH, or the hyperparameter \beta of the proposed Set2Set loss function.
+
+4) To evaluate a trained model, use the command
+
+    python evaluate.py {dataset}
+
+The script will calculate average per-user EER and global EER for a varying set of gallery samples (here G=1,2,5,7,10, which can be set in the script). Note that it is not mandatory to evaluate the model with the same dataset as trained, but the number of input features of training and evaluation dataset must coincide.
