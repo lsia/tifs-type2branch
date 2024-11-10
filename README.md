@@ -30,8 +30,9 @@ Please consult the HOWTO.txt file.
 
 ## Links
 
-Article Preprint
+Article Preprint <br>
 https://arxiv.org/abs/2405.01088
 
-IEEE BigData 2023 Keystroke Verification Challenge (KVC)
-https://arxiv.org/pdf/2401.16559
+IEEE BigData 2023 Keystroke Verification Challenge (KVC) <br>
+https://ieeexplore.ieee.org/document/10386557 <br>
+https://arxiv.org/pdf/2401.16559 (preprint)
