@@ -3,12 +3,12 @@ Companion source code for the article Type2Branch: Keystroke Biometrics based on
 
 ## Authors
 
-Nahuel González
+**Nahuel González**
 
 Laboratorio de Sistemas de Información Avanzados (LSIA)
 Facultad de Ingeniería, Universidad de Buenos Aires (UBA), Argentina
 
-Giuseppe Stragapede, Ruben Vera-Rodriguez, Ruben Tolosana
+**Giuseppe Stragapede, Ruben Vera-Rodriguez, Ruben Tolosana**
 
 Biometrics and Data Pattern Analytics (BiDA) Lab, Universidad Autonoma de Madrid, Spain
 
