@@ -1,6 +1,18 @@
 # tifs-type2branch
 Companion source code for the article Type2Branch: Keystroke Biometrics based on a Dual-branch Architecture with Attention Mechanisms and Set2set Loss, to be published in IEEE Transactions on Information Forensics and Security.
 
+Authors
+
+Nahuel González
+Laboratorio de Sistemas de Información Avanzados (LSIA)
+Facultad de Ingeniería, Universidad de Buenos Aires (UBA)
+Ciudad Autónoma de Buenos Aires, Argentina
+
+Giuseppe Stragapede, Ruben Vera-Rodriguez, Ruben Tolosana
+Biometrics and Data Pattern Analytics (BiDA) Lab
+Universidad Autonoma de Madrid 
+Madrid, Spain
+
 
 Abstract
 
