@@ -56,7 +56,7 @@ class CurriculumSetsGenerator:
         print("[CurriculumSets] EPOCH " + str(epoch));
         self.epoch = epoch;
 
-        if self.epoch == 0:
+        if self.epoch < self.delay:
             print("[CurriculumSets] Naive training without challenge.");
         else:
             print("[CurriculumSets] Calculating user centroids...");
@@ -135,10 +135,10 @@ class CurriculumSetsGenerator:
 
         while True:
             for legitimate_user, samples in self.x.items():
-                if self.epoch == 0:
+                if self.epoch < self.delay:
                     yield self.get_random_sets_batch();
                 else:
-                    nearest_users = self.epoch // self.delay + 1;
+                    nearest_users = self.epoch // self.delay;
                     
                     max_nearest_users = (BATCH_SIZE // self.max_neighbours) - 2;
                     if nearest_users >= max_nearest_users:

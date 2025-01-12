@@ -12,7 +12,13 @@ where {scenario} is desktop or mobile, and {users} is the number of training use
 
     python train.py {dataset}
 
-The hyperparameters of the model and the training process are set in the file conf.py; for example, K, the number of sets per batch, the model width MODEL_WIDTH, or the hyperparameter \beta of the proposed Set2Set loss function.
+The hyperparameters of the model and the training process are set in the file conf.py; for example, K, the number of sets per batch, the model width MODEL_WIDTH, or the hyperparameter \beta of the proposed Set2Set loss function. Several alternative configuration files are included in the repository:
+
+    conf.small.1Kusers.py			- training configuration for the small ablation study model
+    conf.large.desktop.113Kusers.py		- training configuration for the large desktop model that achieved 1st place in the KVC
+    conf.large.mobile.68Kusers.py		- training configuration for the large mobile model that achieved 1st place in the KVC 
+
+To use the above, the file conf.py must be overwritten with their content.
 
 4) To evaluate a trained model, use the command
 

@@ -2,7 +2,7 @@
 N = 15;
 
 # Number of sets per batch
-K = 10;
+K = 40;
 
 #
 # CURRICULUM_DELAY
@@ -22,7 +22,7 @@ K = 10;
 #       EPOCH 20-29 - 2 nearest neighbour, K - 2 random 
 #       etc.
 
-CURRICULUM_DELAY = 20;
+CURRICULUM_DELAY = 1;
 
 #
 # CURRICULUM_MAX_NEIGHBOURS
@@ -38,7 +38,7 @@ CURRICULUM_DELAY = 20;
 #       EPOCH 3 - 2 nearest neighbour, K - 2 random (hit CURRICULUM_MAX_NEIGHBOURS = 2 limitation)
 #       EPOCH 4 - 2 nearest neighbour, K - 2 random (hit CURRICULUM_MAX_NEIGHBOURS = 2 limitation)
 
-CURRICULUM_MAX_NEIGHBOURS = 4;
+CURRICULUM_MAX_NEIGHBOURS = 20;
 
 #
 # Model hyperparameters
@@ -48,8 +48,8 @@ CURRICULUM_MAX_NEIGHBOURS = 4;
 #     MODEL_FILTERS - Number of filters in the first convolutional layer; the other two have 2 * MODEL_FILTERS and 4 * MODEL_FILTERS. If you prefer [..., etc.]
 
 MODEL_DROPOUT = 0.5;
-MODEL_WIDTH   = 256;
-MODEL_FILTERS = 128;
+MODEL_WIDTH   = 512;
+MODEL_FILTERS = 1024;
  
 # Set2Set loss hyperparameter
 BETA = 0.05;
@@ -65,7 +65,7 @@ BETA = 0.05;
 #
 #   should be near optimal, but this needs to be determined empirically.
 
-TRAINING_STEPS   = 100;
+TRAINING_STEPS   = 25000;
 
 #
 # The datasets generated with the generate_dataset.py script included here always have 1000 validation users. Thus, VALIDATION_STEPS should be

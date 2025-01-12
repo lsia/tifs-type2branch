@@ -1,0 +1,6 @@
+
+*.csv
+*.rar
+*.npy
+/model
+/raw
