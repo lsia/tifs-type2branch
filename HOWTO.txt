@@ -25,3 +25,15 @@ To use the above, the file conf.py must be overwritten with their content.
     python evaluate.py {dataset}
 
 The script will calculate average per-user EER and global EER for a varying set of gallery samples (here G=1,2,5,7,10, which can be set in the script). Note that it is not mandatory to evaluate the model with the same dataset as trained, but the number of input features of training and evaluation dataset must coincide.
+
+5) To train or evaluate the model with a dataset other than the one from KVC, simply replace the KVC file SSS_dev_set.npy in the folder raw/SSS, where SSS is either "desktop" or "mobile", and rerun steps 1 to 4. Note that the input datasets must follow the same format as the KVC dataset. Specifically, they must consist of:
+
+	*) A dictionary of users, where the username (string) serves as the key and the value is:
+
+		*) A dictionary of samples, where the sample ID (string) serves as the key and the value is a numpy array containing:
+
+			1) The timestamp of the key press event.
+
+			2) The timestamp of the key release event.
+
+			3) The ASCII code of the key.
