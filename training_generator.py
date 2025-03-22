@@ -14,7 +14,7 @@ def calculate_centroids(model, x, xflattened):
     for user_id in x.keys():
         count += 1;
         
-        centroid = np.mean(yp[15 * count: 15 * count + 15, :], axis=0);
+        centroid = np.mean(yp[15 * count: 15 * count + conf.N, :], axis=0);
         centroids[user_id] = centroid;
 
     return centroids;
@@ -81,9 +81,16 @@ class CurriculumSetsGenerator:
         for batch_user in batch_users:
             i += 1;
             samples = self.x[batch_user];
+            
+            count = 0;
             for sample_id, sample in samples.items():
                 X.append(sample);
                 Y.append(i);
+                
+                count += 1;
+                if count > conf.N:
+                    break;
+
 
         return np.stack(X), np.stack(Y);
 

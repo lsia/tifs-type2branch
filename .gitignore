@@ -4,3 +4,10 @@
 *.npy
 /model
 /raw
+__pycache__/conf.cpython-310.pyc
+__pycache__/loss.cpython-310.pyc
+__pycache__/model.cpython-310.pyc
+__pycache__/training_generator.cpython-310.pyc
+__pycache__/util.cpython-310.pyc
+__pycache__/validation_generator.cpython-310.pyc
+LOSS.png

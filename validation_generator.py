@@ -24,9 +24,15 @@ class RandomSetsGenerator:
         for batch_user in batch_users:
             i += 1;
             samples = self.x[batch_user];
+            
+            count = 0;
             for sample_id, sample in samples.items():
                 X.append(sample);
                 Y.append(i);
+                
+                count += 1;
+                if count > conf.N:
+                    break;
 
         return np.stack(X), np.stack(Y);
 

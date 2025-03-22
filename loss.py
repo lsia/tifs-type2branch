@@ -32,14 +32,14 @@ def calculate_set2set_loss(y_true, y_pred, K, p, beta) -> tf.Tensor:
     total_pairs = 0;
     for i in range(0, K - 1):
         for j in range(i + 1, K):
-            posA = 15 * i;
-            posB = 15 * j;
+            posA = conf.N * i;
+            posB = conf.N * j;
 
-            eA = tf.expand_dims(pdist_matrix[posA:posA + 15,posA: posA + 15],axis=-1);
-            eA = tf.tile(eA, [1, 1, 15]);
+            eA = tf.expand_dims(pdist_matrix[posA:posA + conf.N,posA: posA + conf.N],axis=-1);
+            eA = tf.tile(eA, [1, 1, conf.N]);
 
-            eB = tf.expand_dims(pdist_matrix[posA:posA + 15:,posB:posB + 15],axis=1);
-            eB = tf.tile(eB, [1, 15, 1]);
+            eB = tf.expand_dims(pdist_matrix[posA:posA + conf.N:,posB:posB + conf.N],axis=1);
+            eB = tf.tile(eB, [1, conf.N, 1]);
 
             m = eA - eB + 1.5;
             m = tf.maximum(m, 0);
@@ -50,12 +50,12 @@ def calculate_set2set_loss(y_true, y_pred, K, p, beta) -> tf.Tensor:
             retval += l;
             total_pairs += 1;
       
-    retval /= 1575;
+    retval /= conf.N * conf.N * (conf.N - 1) / 2;
     retval /= total_pairs;
     
     total_radius = 0.0;
     for i in range(0, K):
-        legitimate_embeddings = precise_embeddings[15 * i:15 * i + 15];
+        legitimate_embeddings = precise_embeddings[conf.N * i:conf.N * i + conf.N];
         centroid = tf.reduce_mean(legitimate_embeddings, axis=0);
         distances = tf.norm(legitimate_embeddings - centroid, axis=1)
         mean_distance = tf.reduce_mean(distances);
@@ -64,7 +64,7 @@ def calculate_set2set_loss(y_true, y_pred, K, p, beta) -> tf.Tensor:
     total_radius /= K;
     total_penalty = 0.0;
     for i in range(0, K):
-        legitimate_embeddings = precise_embeddings[15 * i:15 * i + 15];
+        legitimate_embeddings = precise_embeddings[conf.N * i:conf.N * i + conf.N];
         centroid = tf.reduce_mean(legitimate_embeddings, axis=0);
         distances = tf.norm(legitimate_embeddings - centroid, axis=1)
         mean_distance = tf.reduce_mean(distances);
@@ -84,11 +84,11 @@ class Set2SetLoss(Loss):
         self.K = K;
         self.beta = beta;
 
-        p = tf.zeros([15, 15, 15], dtype=float)
+        p = tf.zeros([conf.N, conf.N, conf.N], dtype=float)
 
-        for i in range(0,15):
-          for j in range(i + 1,15):
-            for k in range(0,15):
+        for i in range(0,conf.N):
+          for j in range(i + 1,conf.N):
+            for k in range(0,conf.N):
               position = [i, j, k]
               new_value = 1.0
               index = tf.constant([position])
